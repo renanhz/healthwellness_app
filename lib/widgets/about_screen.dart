@@ -22,6 +22,18 @@ class AboutScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 18.0),
               ),
             ),
+            Container(
+                //margin: EdgeInsets.symmetric(vertical: 25.0, horizontal: 0.0),
+                alignment: Alignment.bottomCenter,
+              child:
+                Column(
+                  children: [Text("Developed by: André Lopes, Eduardo Elesbao, Lucas da Cruz e Renan Pereira.",
+                  style: TextStyle(color: Colors.black, fontSize: 11.3)),
+                    SizedBox(height: 1),
+                  Text("© 2020 Copyright: health-wellness.com",
+                  style: TextStyle(color: Colors.black, fontSize: 15.0))],
+              ),
+            ),
           ],
         ));
   }
