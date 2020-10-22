@@ -11,7 +11,8 @@ class AboutScreen extends StatelessWidget {
               margin: EdgeInsets.symmetric(vertical: 25.0, horizontal: 0.0),
               alignment: Alignment.center,
               child: Text("Health & Wellness",
-                  style: TextStyle(color: Colors.red[600], fontSize: 24.0)),
+                  style:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
             ),
             Container(
               margin: EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
