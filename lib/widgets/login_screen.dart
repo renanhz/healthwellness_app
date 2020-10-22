@@ -12,9 +12,9 @@ class AboutScreen extends StatelessWidget {
               children: [
                 Container(
                     margin:
-                        EdgeInsets.symmetric(vertical: 15.0, horizontal: 0.0),
+                        EdgeInsets.symmetric(vertical: 25.0, horizontal: 0.0),
                     alignment: Alignment.center,
-                    child: Column(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image(
@@ -23,7 +23,7 @@ class AboutScreen extends StatelessWidget {
                           width: 100,
                         ),
                         SizedBox(
-                          width: 1.0,
+                          width: 10.0,
                         ),
                         Text("Health & Wellness",
                             style: TextStyle(
@@ -46,22 +46,6 @@ class AboutScreen extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: Column(
                 children: [
-                  FlatButton(
-                    color: Colors.blue,
-                    textColor: Colors.white,
-                    disabledColor: Colors.grey,
-                    disabledTextColor: Colors.black,
-                    padding: EdgeInsets.all(8.0),
-                    splashColor: Colors.blueAccent,
-                    onPressed: () {
-                      /*...*/
-                    },
-                    child: Text(
-                      "Login",
-                      style: TextStyle(fontSize: 20.0),
-                    ),
-                  ),
-                  SizedBox(height: 100),
                   Text(
                       "Developed by: André Lopes, Eduardo Elesbao, Lucas da Cruz e Renan Pereira.",
                       style: TextStyle(color: Colors.black, fontSize: 11.3)),
