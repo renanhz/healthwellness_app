@@ -22,6 +22,8 @@ environment:
 
 dependencies:
   google_fonts: ^1.1.1
+  localstorage: ^3.0.0
+  rxdart:
   bloc_pattern: ^2.3.2
   flutter:
     sdk: flutter

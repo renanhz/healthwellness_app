@@ -1,10 +1,14 @@
+import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
+import 'package:healthwellness/bloc/lang_bloc.dart';
 import 'package:healthwellness/generated/l10n.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final LangBloc langBloc = BlocProvider.getBloc<LangBloc>();
+
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -49,7 +53,7 @@ class AboutScreen extends StatelessWidget {
                 SizedBox(height: 20.0),
                 FlatButton(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
+                    borderRadius: BorderRadius.circular(18.0),
                   ),
                   color: Colors.red,
                   textColor: Colors.white,
