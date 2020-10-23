@@ -35,7 +35,55 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Health & Wellness`
+  String get appName {
+    return Intl.message(
+      'Health & Wellness',
+      name: 'appName',
+      desc: '',
+      args: [],
+    );
+  }
 
+  /// `About Us`
+  String get aboutUs {
+    return Intl.message(
+      'About Us',
+      name: 'aboutUs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Health and Wellness is a personal medical record control system, in which it seeks to give you the opportunity to carry with you all your consultation and examination history, bringing the convenience and freedom of migrating from hospitals / doctors taking all your health history.`
+  String get about {
+    return Intl.message(
+      'Health and Wellness is a personal medical record control system, in which it seeks to give you the opportunity to carry with you all your consultation and examination history, bringing the convenience and freedom of migrating from hospitals / doctors taking all your health history.',
+      name: 'about',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Developed By André, Eduardo, Lucas, Renan`
+  String get developedBy {
+    return Intl.message(
+      'Developed By André, Eduardo, Lucas, Renan',
+      name: 'developedBy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `© 2020 Copyright: health-wellness.com`
+  String get copyright {
+    return Intl.message(
+      '© 2020 Copyright: health-wellness.com',
+      name: 'copyright',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

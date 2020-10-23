@@ -1,3 +1,8 @@
 {
-    "@@locale": "pt"
+    "@@locale": "pt",
+    "appName": "Health & Wellness",
+    "aboutUs": "About Us",
+    "about": "Health and Wellness is a personal medical record control system, in which it seeks to give you the opportunity to carry with you all your consultation and examination history, bringing the convenience and freedom of migrating from hospitals / doctors taking all your health history.",
+    "developedBy": "Developed By André, Eduardo, Lucas, Renan",
+    "copyright": "© 2020 Copyright: health-wellness.com"
 }

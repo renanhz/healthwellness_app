@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthwellness/generated/l10n.dart';
 
 class AboutScreen extends StatelessWidget {
   @override
@@ -7,7 +8,7 @@ class AboutScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.red[700],
-          title: Text("About us"),
+          title: Text(S.of(context).aboutUs),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -29,7 +30,7 @@ class AboutScreen extends StatelessWidget {
                         SizedBox(
                           width: 1.0,
                         ),
-                        Text("Health & Wellness",
+                        Text(S.of(context).appName,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 24.0)),
                       ],
@@ -38,7 +39,7 @@ class AboutScreen extends StatelessWidget {
                   margin: EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
                   alignment: Alignment.center,
                   child: Text(
-                    "O Health and Wellness é um sistema de controle de prontuário pessoal, no qual busca dar a oportunidade de carregar consigo mesmo todo seu histórico de consulta e exame, trazendo a comodidade e liberdade de migrar de hospitais/médicos levando todos seus antecedentes de saúde.",
+                    S.of(context).about,
                     textAlign: TextAlign.left,
                     style: TextStyle(fontSize: 18.0, color: Colors.grey[600]),
                   ),
@@ -66,11 +67,10 @@ class AboutScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 100),
-                  Text(
-                      "Developed by: André Lopes, Eduardo Elesbao, Lucas da Cruz e Renan Pereira.",
+                  Text(S.of(context).developedBy,
                       style: TextStyle(color: Colors.black, fontSize: 11.3)),
                   SizedBox(height: 1),
-                  Text("© 2020 Copyright: health-wellness.com",
+                  Text(S.of(context).copyright,
                       style: TextStyle(color: Colors.black, fontSize: 15.0))
                 ],
               ),

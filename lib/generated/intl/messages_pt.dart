@@ -21,6 +21,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-
+    "about" : MessageLookupByLibrary.simpleMessage("O Health and Wellness é um sistema de controle de prontuário pessoal, no qual busca dar a oportunidade de carregar consigo mesmo todo seu histórico de consulta e exame, trazendo a comodidade e liberdade de migrar de hospitais/médicos levando todos seus antecedentes de saúde."),
+    "aboutUs" : MessageLookupByLibrary.simpleMessage("Sobre"),
+    "appName" : MessageLookupByLibrary.simpleMessage("Health & Wellness"),
+    "copyright" : MessageLookupByLibrary.simpleMessage("© 2020 Copyright: health-wellness.com"),
+    "developedBy" : MessageLookupByLibrary.simpleMessage("Desenvolvido por André, Eduardo, Lucas, Renan")
   };
 }
