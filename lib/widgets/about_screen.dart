@@ -48,6 +48,9 @@ class AboutScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20.0),
                 FlatButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                  ),
                   color: Colors.red,
                   textColor: Colors.white,
                   disabledColor: Colors.grey,
