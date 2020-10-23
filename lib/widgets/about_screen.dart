@@ -36,8 +36,7 @@ class AboutScreen extends StatelessWidget {
                       ],
                     )),
                 Container(
-                  margin:
-                      EdgeInsets.symmetric(vertical: 25.0, horizontal: 20.0),
+                  margin: EdgeInsets.fromLTRB(20.0, 25.0, 20.0, 0.0),
                   alignment: Alignment.center,
                   child: Text(
                     S.of(context).about,
@@ -47,29 +46,28 @@ class AboutScreen extends StatelessWidget {
                             TextStyle(fontSize: 25.0, color: Colors.grey[600])),
                   ),
                 ),
+                SizedBox(height: 20.0),
+                FlatButton(
+                  color: Colors.red,
+                  textColor: Colors.white,
+                  disabledColor: Colors.grey,
+                  disabledTextColor: Colors.black,
+                  padding: EdgeInsets.all(8.0),
+                  splashColor: Colors.redAccent,
+                  onPressed: () {
+                    /*...*/
+                  },
+                  child: Text(
+                    S.of(context).login,
+                    style: TextStyle(fontSize: 30.0),
+                  ),
+                ),
               ],
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 1.0, horizontal: 0.0),
               alignment: Alignment.bottomCenter,
               child: Column(
                 children: [
-                  FlatButton(
-                    color: Colors.red,
-                    textColor: Colors.white,
-                    disabledColor: Colors.grey,
-                    disabledTextColor: Colors.black,
-                    padding: EdgeInsets.all(8.0),
-                    splashColor: Colors.redAccent,
-                    onPressed: () {
-                      /*...*/
-                    },
-                    child: Text(
-                      "LOGIN",
-                      style: TextStyle(fontSize: 30.0),
-                    ),
-                  ),
-                  SizedBox(height: 100),
                   Text(S.of(context).developedBy,
                       textAlign: TextAlign.justify,
                       style: GoogleFonts.teko(
