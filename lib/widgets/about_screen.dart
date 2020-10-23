@@ -8,7 +8,7 @@ class AboutScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Colors.red[700],
+          backgroundColor: Colors.red[600],
           title: Text(S.of(context).aboutUs),
         ),
         body: Column(
