@@ -48,6 +48,9 @@ class AboutScreen extends StatelessWidget {
               child: Column(
                 children: [
                   FlatButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                    ),
                     color: Colors.red,
                     textColor: Colors.white,
                     disabledColor: Colors.grey,
