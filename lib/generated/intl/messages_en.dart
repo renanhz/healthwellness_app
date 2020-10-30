@@ -21,6 +21,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-
+    "about" : MessageLookupByLibrary.simpleMessage("Health and Wellness is a personal medical record control system, in which it seeks to give you the opportunity to carry with you all your consultation and examination history, bringing the convenience and freedom of migrating from hospitals / doctors taking all your health history."),
+    "aboutUs" : MessageLookupByLibrary.simpleMessage("About Us"),
+    "appName" : MessageLookupByLibrary.simpleMessage("Health & Wellness"),
+    "copyright" : MessageLookupByLibrary.simpleMessage("© 2020 Copyright: health-wellness.com"),
+    "developedBy" : MessageLookupByLibrary.simpleMessage("Developed By André, Eduardo, Lucas, Renan"),
+    "english" : MessageLookupByLibrary.simpleMessage("English"),
+    "login" : MessageLookupByLibrary.simpleMessage("LOGIN"),
+    "portuguese" : MessageLookupByLibrary.simpleMessage("Portuguese")
   };
 }
