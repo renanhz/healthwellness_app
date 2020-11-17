@@ -1,61 +1,80 @@
+import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
+import 'package:healthwellness/bloc/lang_bloc.dart';
+import 'package:healthwellness/generated/l10n.dart';
+import 'lang_button.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.white,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                Container(
-                    margin:
-                        EdgeInsets.symmetric(vertical: 25.0, horizontal: 0.0),
-                    alignment: Alignment.center,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image(
-                          image: AssetImage('lib/assets/img/logo.png'),
-                          height: 100,
-                          width: 100,
-                        ),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        Text("Health & Wellness",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 24.0)),
-                      ],
-                    )),
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
-                  alignment: Alignment.center,
-                  child: Text(
-                    "O Health and Wellness é um sistema de controle de prontuário pessoal, no qual busca dar a oportunidade de carregar consigo mesmo todo seu histórico de consulta e exame, trazendo a comodidade e liberdade de migrar de hospitais/médicos levando todos seus antecedentes de saúde.",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 18.0, color: Colors.grey[600]),
-                  ),
-                ),
-              ],
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 1.0, horizontal: 0.0),
-              alignment: Alignment.bottomCenter,
-              child: Column(
-                children: [
-                  Text(
-                      "Developed by: André Lopes, Eduardo Elesbao, Lucas da Cruz e Renan Pereira.",
-                      style: TextStyle(color: Colors.black, fontSize: 11.3)),
-                  SizedBox(height: 1),
-                  Text("© 2020 Copyright: health-wellness.com",
-                      style: TextStyle(color: Colors.black, fontSize: 15.0))
-                ],
+    final LangBloc langBloc = BlocProvider.getBloc<LangBloc>();
+
+    return StreamBuilder(
+      initialData: 'en',
+      stream: langBloc.outLocale,
+      builder: (context, snapshot) {
+        return Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            backgroundColor: Colors.red[600],
+            title: Text(S.of(context).signIn),
+            actions: [LangButton()],
+          ),
+          body: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(
+                height: 50,
               ),
-            ),
-          ],
-        ));
+              Container(
+                  margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                  child: TextField(
+                    autofocus: true,
+                    keyboardType: TextInputType.emailAddress,
+                    style: TextStyle(fontSize: 20.0),
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                      labelText: S.of(context).email,
+                    ),
+                  )),
+              SizedBox(
+                height: 20.0,
+              ),
+              Container(
+                  margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                  child: TextField(
+                    obscureText: true,
+                    style: TextStyle(fontSize: 20.0),
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                      labelText: S.of(context).password,
+                    ),
+                  )),
+              SizedBox(
+                height: 50.0,
+              ),
+              FlatButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+                color: Colors.red,
+                textColor: Colors.white,
+                disabledColor: Colors.grey,
+                disabledTextColor: Colors.black,
+                padding: EdgeInsets.all(8.0),
+                splashColor: Colors.redAccent,
+                onPressed: () {},
+                child: Text(
+                  S.of(context).enter,
+                  style: TextStyle(fontSize: 30.0),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

@@ -26,8 +26,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "appName" : MessageLookupByLibrary.simpleMessage("Health & Wellness"),
     "copyright" : MessageLookupByLibrary.simpleMessage("© 2020 Copyright: health-wellness.com"),
     "developedBy" : MessageLookupByLibrary.simpleMessage("Developed By André, Eduardo, Lucas, Renan"),
+    "email" : MessageLookupByLibrary.simpleMessage("Email"),
     "english" : MessageLookupByLibrary.simpleMessage("English"),
+    "enter" : MessageLookupByLibrary.simpleMessage("Enter"),
     "login" : MessageLookupByLibrary.simpleMessage("LOGIN"),
-    "portuguese" : MessageLookupByLibrary.simpleMessage("Portuguese")
+    "password" : MessageLookupByLibrary.simpleMessage("Password"),
+    "portuguese" : MessageLookupByLibrary.simpleMessage("Portuguese"),
+    "signIn" : MessageLookupByLibrary.simpleMessage("Sign in")
   };
 }

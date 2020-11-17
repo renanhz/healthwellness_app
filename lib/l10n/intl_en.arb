@@ -7,5 +7,9 @@
     "copyright": "© 2020 Copyright: health-wellness.com",
     "login": "LOGIN",
     "portuguese": "Portuguese",
-    "english": "English"
+    "english": "English",
+    "signIn": "Sign in",
+    "email": "Email",
+    "password": "Password",
+    "enter": "Enter"
 }
