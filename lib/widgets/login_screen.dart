@@ -13,12 +13,13 @@ class LoginScreen extends StatelessWidget {
       initialData: 'en',
       stream: langBloc.outLocale,
       builder: (context, snapshot) {
-        return Scaffold(
+        return MaterialApp(
+            home: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
             backgroundColor: Colors.red[600],
             title: Text(S.of(context).signIn),
-            actions: [LangButton()],
+            actions: [langButton(context)],
           ),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -73,7 +74,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ],
           ),
-        );
+        ));
       },
     );
   }
