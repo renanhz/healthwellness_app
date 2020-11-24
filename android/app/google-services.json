@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "516124043452",
+    "firebase_url": "https://configuracaofirebasereac-e8385.firebaseio.com",
+    "project_id": "configuracaofirebasereac-e8385",
+    "storage_bucket": "configuracaofirebasereac-e8385.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516124043452:android:163f2d403f525a808f88b9",
+        "android_client_info": {
+          "package_name": "com.example.healthwellness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516124043452-v9rolt4grn8kb776i19u2lsubi0fk5fk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKkDiQA_fT4uwhX6Ozu1eJBxQF1FGZVsI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516124043452-v9rolt4grn8kb776i19u2lsubi0fk5fk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
