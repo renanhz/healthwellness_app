@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:healthwellness/bloc/lang_bloc.dart';
@@ -5,9 +7,37 @@ import 'package:healthwellness/generated/l10n.dart';
 import 'lang_button.dart';
 
 class LoginScreen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     final LangBloc langBloc = BlocProvider.getBloc<LangBloc>();
+
+    TextEditingController etUsername = new TextEditingController();
+    TextEditingController etPassword = new TextEditingController();
+
+    String nUsername = "";
+    String nPassword = "";
+
+    Widget okButton = FlatButton(
+      child: Text("OK"),
+      onPressed: () {Navigator.of(context).pop(false);},
+    );
+
+    AlertDialog alertSuccessful = AlertDialog(
+      title: Text("Mensagem"),
+      content: Text("Você inseriu a credencial certa."),
+      actions: [
+        okButton,
+      ],
+    );
+
+    AlertDialog alertFailed = AlertDialog(
+      title: Text("Mensagem"),
+      content: Text("Você inseriu a credencial errada."),
+      actions: [
+        okButton,
+      ],
+    );
 
     return StreamBuilder(
       initialData: 'en',
@@ -29,6 +59,7 @@ class LoginScreen extends StatelessWidget {
               Container(
                   margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
                   child: TextField(
+                    controller: etUsername,
                     autofocus: true,
                     keyboardType: TextInputType.emailAddress,
                     style: TextStyle(fontSize: 20.0),
@@ -44,6 +75,7 @@ class LoginScreen extends StatelessWidget {
               Container(
                   margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
                   child: TextField(
+                    controller: etPassword,
                     obscureText: true,
                     style: TextStyle(fontSize: 20.0),
                     decoration: InputDecoration(
@@ -65,7 +97,25 @@ class LoginScreen extends StatelessWidget {
                 disabledTextColor: Colors.black,
                 padding: EdgeInsets.all(8.0),
                 splashColor: Colors.redAccent,
-                onPressed: () {},
+                onPressed: () {
+                    nUsername = etUsername.text;
+                    nPassword = etPassword.text;
+                    if(nUsername=="admin" && nPassword=="admin"){
+                        showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return alertSuccessful;
+                        },
+                      );
+                    }else{
+                        showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return alertFailed;
+                        },
+                      );
+                    }
+                },
                 child: Text(
                   S.of(context).enter,
                   style: TextStyle(fontSize: 30.0),
