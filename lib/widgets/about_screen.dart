@@ -56,7 +56,7 @@ class AboutScreen extends StatelessWidget {
                                 textAlign: TextAlign.justify,
                                 style: GoogleFonts.teko(
                                     textStyle: TextStyle(
-                                        fontSize: 25.0,
+                                        fontSize: 24.0,
                                         color: Colors.grey[600])),
                               ),
                             ),

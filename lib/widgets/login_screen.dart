@@ -1,13 +1,17 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:healthwellness/bloc/lang_bloc.dart';
+import 'package:healthwellness/bloc/login_bloc.dart';
 import 'package:healthwellness/generated/l10n.dart';
 import 'lang_button.dart';
 
 class LoginScreen extends StatelessWidget {
+  bool _isLoginButtonDisabled = true;
+
   @override
   Widget build(BuildContext context) {
     final LangBloc langBloc = BlocProvider.getBloc<LangBloc>();
+    final LoginBloc loginBloc = BlocProvider.getBloc<LoginBloc>();
 
     return StreamBuilder(
       initialData: 'en',
@@ -32,6 +36,9 @@ class LoginScreen extends StatelessWidget {
                           margin: EdgeInsets.symmetric(
                               horizontal: 20.0, vertical: 0.0),
                           child: TextField(
+                            onChanged: (text) {
+                              loginBloc.inEmail.add(text);
+                            },
                             autofocus: true,
                             keyboardType: TextInputType.emailAddress,
                             style: TextStyle(fontSize: 20.0),
@@ -49,6 +56,9 @@ class LoginScreen extends StatelessWidget {
                           margin: EdgeInsets.symmetric(
                               horizontal: 20.0, vertical: 0.0),
                           child: TextField(
+                            onChanged: (text) {
+                              loginBloc.inPass.add(text);
+                            },
                             obscureText: true,
                             style: TextStyle(fontSize: 20.0),
                             decoration: InputDecoration(
@@ -68,10 +78,14 @@ class LoginScreen extends StatelessWidget {
                         color: Colors.red,
                         textColor: Colors.white,
                         disabledColor: Colors.grey,
-                        disabledTextColor: Colors.black,
+                        disabledTextColor: Colors.grey[300],
                         padding: EdgeInsets.all(8.0),
                         splashColor: Colors.redAccent,
-                        onPressed: () {},
+                        onPressed: _isLoginButtonDisabled
+                            ? null
+                            : () {
+                                loginBloc.login();
+                              },
                         child: Text(
                           S.of(context).enter,
                           style: TextStyle(fontSize: 30.0),
