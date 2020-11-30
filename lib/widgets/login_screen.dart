@@ -6,10 +6,8 @@ import 'package:healthwellness/generated/l10n.dart';
 import 'lang_button.dart';
 
 class LoginScreen extends StatelessWidget {
-  bool _isLoginButtonDisabled = true;
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext mainContext) {
     final LangBloc langBloc = BlocProvider.getBloc<LangBloc>();
     final LoginBloc loginBloc = BlocProvider.getBloc<LoginBloc>();
 
@@ -22,8 +20,8 @@ class LoginScreen extends StatelessWidget {
                 backgroundColor: Colors.white,
                 appBar: AppBar(
                   backgroundColor: Colors.red[600],
-                  title: Text(S.of(context).signIn),
-                  actions: [langButton(context)],
+                  title: Text(S.of(mainContext).signIn),
+                  actions: [langButton(mainContext)],
                 ),
                 body: SingleChildScrollView(
                   child: Column(
@@ -46,7 +44,7 @@ class LoginScreen extends StatelessWidget {
                               border: OutlineInputBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(5.0))),
-                              labelText: S.of(context).email,
+                              labelText: S.of(mainContext).email,
                             ),
                           )),
                       SizedBox(
@@ -65,32 +63,38 @@ class LoginScreen extends StatelessWidget {
                               border: OutlineInputBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(5.0))),
-                              labelText: S.of(context).password,
+                              labelText: S.of(mainContext).password,
                             ),
                           )),
                       SizedBox(
                         height: 50.0,
                       ),
-                      FlatButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        color: Colors.red,
-                        textColor: Colors.white,
-                        disabledColor: Colors.grey,
-                        disabledTextColor: Colors.grey[300],
-                        padding: EdgeInsets.all(8.0),
-                        splashColor: Colors.redAccent,
-                        onPressed: _isLoginButtonDisabled
-                            ? null
-                            : () {
-                                loginBloc.login();
-                              },
-                        child: Text(
-                          S.of(context).enter,
-                          style: TextStyle(fontSize: 30.0),
-                        ),
-                      ),
+                      StreamBuilder(
+                        initialData: false,
+                        stream: loginBloc.outButtonDisable,
+                        builder: (context, snapshot) {
+                          return FlatButton(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            color: Colors.red,
+                            textColor: Colors.white,
+                            disabledColor: Colors.grey,
+                            disabledTextColor: Colors.grey[300],
+                            padding: EdgeInsets.all(8.0),
+                            splashColor: Colors.redAccent,
+                            onPressed: snapshot.data
+                                ? null
+                                : () {
+                                    loginBloc.login();
+                                  },
+                            child: Text(
+                              S.of(mainContext).enter,
+                              style: TextStyle(fontSize: 30.0),
+                            ),
+                          );
+                        },
+                      )
                     ],
                   ),
                 )));

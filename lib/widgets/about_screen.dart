@@ -8,7 +8,7 @@ import 'package:healthwellness/widgets/login_screen.dart';
 
 class AboutScreen extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext mainContext) {
     final LangBloc langBloc = BlocProvider.getBloc<LangBloc>();
 
     return StreamBuilder(
@@ -20,8 +20,8 @@ class AboutScreen extends StatelessWidget {
                   backgroundColor: Colors.white,
                   appBar: AppBar(
                     backgroundColor: Colors.red[600],
-                    title: Text(S.of(context).aboutUs),
-                    actions: [langButton(context)],
+                    title: Text(S.of(mainContext).aboutUs),
+                    actions: [langButton(mainContext)],
                   ),
                   body: SingleChildScrollView(
                     child: Column(
@@ -40,7 +40,7 @@ class AboutScreen extends StatelessWidget {
                                       height: 100,
                                       width: 100,
                                     ),
-                                    Text(S.of(context).appName,
+                                    Text(S.of(mainContext).appName,
                                         style: GoogleFonts.staatliches(
                                             textStyle: TextStyle(
                                                 fontWeight: FontWeight.bold,
@@ -52,7 +52,7 @@ class AboutScreen extends StatelessWidget {
                                   EdgeInsets.fromLTRB(20.0, 25.0, 20.0, 0.0),
                               alignment: Alignment.center,
                               child: Text(
-                                S.of(context).about,
+                                S.of(mainContext).about,
                                 textAlign: TextAlign.justify,
                                 style: GoogleFonts.teko(
                                     textStyle: TextStyle(
@@ -78,7 +78,7 @@ class AboutScreen extends StatelessWidget {
                                         builder: (context) => LoginScreen()));
                               },
                               child: Text(
-                                S.of(context).login,
+                                S.of(mainContext).login,
                                 style: TextStyle(fontSize: 30.0),
                               ),
                             ),
@@ -89,14 +89,14 @@ class AboutScreen extends StatelessWidget {
                           alignment: Alignment.bottomCenter,
                           child: Column(
                             children: [
-                              Text(S.of(context).developedBy,
+                              Text(S.of(mainContext).developedBy,
                                   textAlign: TextAlign.justify,
                                   style: GoogleFonts.teko(
                                       textStyle: TextStyle(
                                           color: Colors.black,
                                           fontSize: 18.0))),
                               SizedBox(height: 1),
-                              Text(S.of(context).copyright,
+                              Text(S.of(mainContext).copyright,
                                   style: GoogleFonts.teko(
                                       textStyle: TextStyle(
                                           color: Colors.black, fontSize: 18.0)))
