@@ -36,6 +36,7 @@ class LoginScreen extends StatelessWidget {
                           child: TextField(
                             onChanged: (text) {
                               loginBloc.inEmail.add(text);
+                              loginBloc.checkButtonDisable();
                             },
                             autofocus: true,
                             keyboardType: TextInputType.emailAddress,
@@ -56,6 +57,7 @@ class LoginScreen extends StatelessWidget {
                           child: TextField(
                             onChanged: (text) {
                               loginBloc.inPass.add(text);
+                              loginBloc.checkButtonDisable();
                             },
                             obscureText: true,
                             style: TextStyle(fontSize: 20.0),
@@ -70,7 +72,7 @@ class LoginScreen extends StatelessWidget {
                         height: 50.0,
                       ),
                       StreamBuilder(
-                        initialData: false,
+                        initialData: true,
                         stream: loginBloc.outButtonDisable,
                         builder: (context, snapshot) {
                           return FlatButton(

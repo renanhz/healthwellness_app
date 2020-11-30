@@ -23,13 +23,31 @@ class LoginBloc extends BlocBase {
   FirebaseService firebaseService =
       GetIt.I.get<FirebaseService>(instanceName: 'firebaseService');
 
+  void checkButtonDisable() {
+    String email = _emailController.value;
+    String password = _passController.value;
+
+    print(email + ' - ' + password);
+
+    if (email.isNotEmpty && password.isNotEmpty && password.length > 6) {
+      inButtonDisable.add(false);
+    } else {
+      inButtonDisable.add(true);
+    }
+  }
+
   Future<void> login() async {
     _loginController.sink.add(LoginState.LOADING);
 
     String email = _emailController.value;
     String password = _passController.value;
 
-    await firebaseService.login(email, password);
+    firebaseService.login(email, password).then((User user) {
+      //baixar informações do usuário
+      _loginController.sink.add(LoginState.SUCCESS);
+    }).catchError((FirebaseAuthException e) {
+      _loginController.sink.add(LoginState.FAIL);
+    });
   }
 
   @override
