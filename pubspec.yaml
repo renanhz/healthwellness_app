@@ -25,10 +25,6 @@ dependencies:
   localstorage: ^3.0.0
   rxdart:
   bloc_pattern: ^2.3.2
-  firebase_core : ^0.5.0
-  firebase_auth: ^0.18.3
-  firebase_storage: ^5.0.1
-  get_it: ^5.0.1
   flutter:
     sdk: flutter
 

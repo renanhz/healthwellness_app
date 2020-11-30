@@ -27,10 +27,4 @@ class LangBloc extends BlocBase {
 
     S.load(Locale(locale));
   }
-
-  @override
-  void dispose() {
-    _localeController.close();
-    super.dispose();
-  }
 }

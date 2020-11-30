@@ -30,7 +30,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "english" : MessageLookupByLibrary.simpleMessage("English"),
     "enter" : MessageLookupByLibrary.simpleMessage("Enter"),
     "login" : MessageLookupByLibrary.simpleMessage("LOGIN"),
-    "loginError" : MessageLookupByLibrary.simpleMessage("Invalida Email/Password"),
     "password" : MessageLookupByLibrary.simpleMessage("Password"),
     "portuguese" : MessageLookupByLibrary.simpleMessage("Portuguese"),
     "signIn" : MessageLookupByLibrary.simpleMessage("Sign in")

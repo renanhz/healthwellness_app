@@ -11,6 +11,5 @@
     "signIn": "Sign in",
     "email": "Email",
     "password": "Password",
-    "enter": "Enter",
-    "loginError": "Invalida Email/Password"
+    "enter": "Enter"
 }

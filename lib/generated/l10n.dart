@@ -154,16 +154,6 @@ class S {
       args: [],
     );
   }
-
-  /// `Invalida Email/Password`
-  String get loginError {
-    return Intl.message(
-      'Invalida Email/Password',
-      name: 'loginError',
-      desc: '',
-      args: [],
-    );
-  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
