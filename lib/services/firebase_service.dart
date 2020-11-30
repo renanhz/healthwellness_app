@@ -9,8 +9,7 @@ class FirebaseService {
           email: email, password: password);
 
       return userCredential.user;
-    } on FirebaseAuthException catch (e) {
-      print(e.code);
+    } catch (e) {
       throw e;
     }
   }

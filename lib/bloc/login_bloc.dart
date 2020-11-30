@@ -2,9 +2,8 @@ import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:healthwellness/services/firebase_service.dart';
+import 'package:healthwellness/utils/login_state_enum.dart';
 import 'package:rxdart/rxdart.dart';
-
-enum LoginState { LOADING, SUCCESS, FAIL }
 
 class LoginBloc extends BlocBase {
   BehaviorSubject<String> _emailController = BehaviorSubject<String>();
@@ -27,9 +26,7 @@ class LoginBloc extends BlocBase {
     String email = _emailController.value;
     String password = _passController.value;
 
-    print(email + ' - ' + password);
-
-    if (email.isNotEmpty && password.isNotEmpty && password.length > 6) {
+    if (email.isNotEmpty && password.isNotEmpty && password.length >= 6) {
       inButtonDisable.add(false);
     } else {
       inButtonDisable.add(true);
@@ -38,6 +35,7 @@ class LoginBloc extends BlocBase {
 
   Future<void> login() async {
     _loginController.sink.add(LoginState.LOADING);
+    Future.delayed(Duration(seconds: 3));
 
     String email = _emailController.value;
     String password = _passController.value;
@@ -45,7 +43,7 @@ class LoginBloc extends BlocBase {
     firebaseService.login(email, password).then((User user) {
       //baixar informações do usuário
       _loginController.sink.add(LoginState.SUCCESS);
-    }).catchError((FirebaseAuthException e) {
+    }).catchError((e) {
       _loginController.sink.add(LoginState.FAIL);
     });
   }

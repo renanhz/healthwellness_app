@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:healthwellness/bloc/lang_bloc.dart';
 import 'package:healthwellness/bloc/login_bloc.dart';
 import 'package:healthwellness/generated/l10n.dart';
+import 'package:healthwellness/utils/login_state_enum.dart';
+import 'package:healthwellness/widgets/home_screen.dart';
 import 'lang_button.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -14,7 +16,7 @@ class LoginScreen extends StatelessWidget {
     return StreamBuilder(
       initialData: 'en',
       stream: langBloc.outLocale,
-      builder: (context, snapshot) {
+      builder: (langContext, snapshot) {
         return MaterialApp(
             home: Scaffold(
                 backgroundColor: Colors.white,
@@ -69,12 +71,50 @@ class LoginScreen extends StatelessWidget {
                             ),
                           )),
                       SizedBox(
-                        height: 50.0,
+                        height: 20.0,
+                      ),
+                      StreamBuilder(
+                        stream: loginBloc.outLoginState,
+                        builder: (loginStateContext, snapshot) {
+                          if (snapshot.hasData) {
+                            if (snapshot.data == LoginState.LOADING) {
+                              return Center(
+                                heightFactor: 2,
+                                child: CircularProgressIndicator(
+                                  valueColor:
+                                      AlwaysStoppedAnimation(Colors.red[600]),
+                                ),
+                              );
+                            } else if (snapshot.data == LoginState.FAIL) {
+                              return Center(
+                                heightFactor: 2,
+                                child: Text(
+                                  S.of(mainContext).loginError,
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 20.0,
+                                  ),
+                                ),
+                              );
+                            } else if (snapshot.data == LoginState.SUCCESS) {
+                              Navigator.pushReplacement(
+                                  mainContext,
+                                  MaterialPageRoute(
+                                      builder: (navigatorContext) =>
+                                          HomeScreen()));
+                            }
+                          } else {
+                            return Container();
+                          }
+                        },
+                      ),
+                      SizedBox(
+                        height: 20.0,
                       ),
                       StreamBuilder(
                         initialData: true,
                         stream: loginBloc.outButtonDisable,
-                        builder: (context, snapshot) {
+                        builder: (buttonDisableContext, snapshot) {
                           return FlatButton(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),

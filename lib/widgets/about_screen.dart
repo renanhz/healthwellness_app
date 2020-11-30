@@ -75,7 +75,8 @@ class AboutScreen extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => LoginScreen()));
+                                        builder: (navigatorContext) =>
+                                            LoginScreen()));
                               },
                               child: Text(
                                 S.of(mainContext).login,
