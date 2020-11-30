@@ -23,13 +23,6 @@ class LoginBloc extends BlocBase {
 
     String email = _emailController.value;
     String password = _passController.value;
-
-    try {
-      UserCredential userCredential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
-
-      print(userCredential);
-    } on FirebaseAuthException catch (e) {}
   }
 
   @override
