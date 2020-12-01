@@ -35,7 +35,6 @@ class LoginBloc extends BlocBase {
 
   Future<void> login() async {
     _loginController.sink.add(LoginState.LOADING);
-    Future.delayed(Duration(seconds: 3));
 
     String email = _emailController.value;
     String password = _passController.value;
