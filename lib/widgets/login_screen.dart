@@ -97,11 +97,13 @@ class LoginScreen extends StatelessWidget {
                                 ),
                               );
                             } else if (snapshot.data == LoginState.SUCCESS) {
-                              Navigator.pushReplacement(
-                                  mainContext,
-                                  MaterialPageRoute(
-                                      builder: (navigatorContext) =>
-                                          HomeScreen()));
+                              Future.delayed(Duration.zero, () {
+                                Navigator.pushReplacement(
+                                    mainContext,
+                                    MaterialPageRoute(
+                                        builder: (navigatorContext) =>
+                                            HomeScreen()));
+                              });
                             }
                           } else {
                             return Container();

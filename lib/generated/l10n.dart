@@ -155,11 +155,31 @@ class S {
     );
   }
 
-  /// `Invalida Email/Password`
+  /// `Invalid Email/Password`
   String get loginError {
     return Intl.message(
-      'Invalida Email/Password',
+      'Invalid Email/Password',
       name: 'loginError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Appointments`
+  String get appointments {
+    return Intl.message(
+      'Appointments',
+      name: 'appointments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exams`
+  String get exams {
+    return Intl.message(
+      'Exams',
+      name: 'exams',
       desc: '',
       args: [],
     );

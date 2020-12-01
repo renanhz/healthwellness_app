@@ -12,5 +12,7 @@
     "email": "Email",
     "password": "Password",
     "enter": "Enter",
-    "loginError": "Invalida Email/Password"
+    "loginError": "Invalid Email/Password",
+    "appointments": "Appointments",
+    "exams": "Exams"
 }
