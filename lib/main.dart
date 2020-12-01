@@ -6,6 +6,7 @@ import 'package:healthwellness/bloc/home_navigation_bloc.dart';
 import 'package:healthwellness/bloc/lang_bloc.dart';
 import 'package:healthwellness/bloc/login_bloc.dart';
 import 'package:healthwellness/services/firebase_service.dart';
+import 'package:healthwellness/services/patient_service.dart';
 import 'package:healthwellness/widgets/about_screen.dart';
 
 import 'generated/l10n.dart';
@@ -15,6 +16,9 @@ Future<void> setup() async {
 
   GetIt.I.registerSingleton<FirebaseService>(FirebaseService(),
       instanceName: 'firebaseService');
+
+  GetIt.I.registerSingleton<PatientService>(PatientService(),
+      instanceName: 'patientService');
 }
 
 void main() async {
