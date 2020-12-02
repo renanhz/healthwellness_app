@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "aboutUs" : MessageLookupByLibrary.simpleMessage("About Us"),
     "appName" : MessageLookupByLibrary.simpleMessage("Health & Wellness"),
     "appointments" : MessageLookupByLibrary.simpleMessage("Appointments"),
+    "cancel" : MessageLookupByLibrary.simpleMessage("Cancel"),
     "copyright" : MessageLookupByLibrary.simpleMessage("© 2020 Copyright: health-wellness.com"),
     "developedBy" : MessageLookupByLibrary.simpleMessage("Developed By André, Eduardo, Lucas, Renan"),
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
@@ -33,6 +34,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "exams" : MessageLookupByLibrary.simpleMessage("Exams"),
     "login" : MessageLookupByLibrary.simpleMessage("LOGIN"),
     "loginError" : MessageLookupByLibrary.simpleMessage("Invalid Email/Password"),
+    "logoutAlertText" : MessageLookupByLibrary.simpleMessage("Go back to about screen"),
+    "logoutAlertTitle" : MessageLookupByLibrary.simpleMessage("Logout?"),
+    "ok" : MessageLookupByLibrary.simpleMessage("OK"),
     "password" : MessageLookupByLibrary.simpleMessage("Password"),
     "portuguese" : MessageLookupByLibrary.simpleMessage("Portuguese"),
     "signIn" : MessageLookupByLibrary.simpleMessage("Sign in")

@@ -19,6 +19,10 @@ class LoginBloc extends BlocBase {
   BehaviorSubject<LoginState> _loginController = BehaviorSubject<LoginState>();
   Stream<LoginState> get outLoginState => _loginController.stream;
 
+  BehaviorSubject<LogoutState> _logoutController =
+      BehaviorSubject<LogoutState>();
+  Stream<LogoutState> get outLogoutState => _logoutController.stream;
+
   FirebaseService firebaseService =
       GetIt.I.get<FirebaseService>(instanceName: 'firebaseService');
 
@@ -43,6 +47,17 @@ class LoginBloc extends BlocBase {
       _loginController.sink.add(LoginState.SUCCESS);
     }).catchError((e) {
       _loginController.sink.add(LoginState.FAIL);
+    });
+  }
+
+  Future<void> logout() async {
+    _logoutController.sink.add(LogoutState.LOADING);
+
+    firebaseService.logout().then((val) {
+      _logoutController.sink.add(LogoutState.SUCCESS);
+    }).catchError((e) {
+      print(e);
+      _logoutController.sink.add(LogoutState.FAIL);
     });
   }
 

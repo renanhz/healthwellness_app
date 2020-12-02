@@ -14,5 +14,9 @@
     "enter": "Enter",
     "loginError": "Invalid Email/Password",
     "appointments": "Appointments",
-    "exams": "Exams"
+    "exams": "Exams",
+    "logoutAlertTitle": "Logout?",
+    "logoutAlertText": "Go back to about screen",
+    "ok": "OK",
+    "cancel": "Cancel"
 }

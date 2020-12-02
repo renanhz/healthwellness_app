@@ -184,6 +184,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Logout?`
+  String get logoutAlertTitle {
+    return Intl.message(
+      'Logout?',
+      name: 'logoutAlertTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Go back to about screen`
+  String get logoutAlertText {
+    return Intl.message(
+      'Go back to about screen',
+      name: 'logoutAlertText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OK`
+  String get ok {
+    return Intl.message(
+      'OK',
+      name: 'ok',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

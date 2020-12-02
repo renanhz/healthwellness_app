@@ -14,5 +14,9 @@
     "enter": "Entrar",
     "loginError": "Email/senha inválidos",
     "appointments": "Consultas",
-    "exams": "Exames"
+    "exams": "Exames",
+    "logoutAlertTitle": "Deseja sair?",
+    "logoutAlertText": "Voltar para a tela sobre",
+    "ok": "OK",
+    "cancel": "Cancelar"
 }

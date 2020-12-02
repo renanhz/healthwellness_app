@@ -1,6 +1,7 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
 import 'package:healthwellness/bloc/home_navigation_bloc.dart';
 import 'package:healthwellness/bloc/lang_bloc.dart';
@@ -31,8 +32,14 @@ void main() async {
         Bloc((i) => HomeNavigationBloc())
       ],
       child: MaterialApp(
-        localizationsDelegates: [S.delegate],
+        localizationsDelegates: [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
         supportedLocales: S.delegate.supportedLocales,
+        debugShowCheckedModeBanner: false,
         title: "Health & Wellness",
         home: AboutScreen(),
       )));
