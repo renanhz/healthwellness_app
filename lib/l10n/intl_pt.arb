@@ -18,5 +18,6 @@
     "logoutAlertTitle": "Deseja sair?",
     "logoutAlertText": "Voltar para a tela sobre",
     "ok": "OK",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "home": "Home"
 }

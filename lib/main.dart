@@ -9,6 +9,8 @@ import 'package:healthwellness/bloc/login_bloc.dart';
 import 'package:healthwellness/services/firebase_service.dart';
 import 'package:healthwellness/services/patient_service.dart';
 import 'package:healthwellness/widgets/about_screen.dart';
+import 'package:healthwellness/widgets/home_screen.dart';
+import 'package:healthwellness/widgets/login_screen.dart';
 
 import 'generated/l10n.dart';
 
@@ -41,6 +43,11 @@ void main() async {
         supportedLocales: S.delegate.supportedLocales,
         debugShowCheckedModeBanner: false,
         title: "Health & Wellness",
-        home: AboutScreen(),
+        initialRoute: "about",
+        routes: {
+          "about": (context) => AboutScreen(),
+          "login": (context) => LoginScreen(),
+          "home": (context) => HomeScreen()
+        },
       )));
 }

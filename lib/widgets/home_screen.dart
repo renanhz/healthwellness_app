@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.red[600],
-            title: Text(S.of(mainContext).aboutUs),
+            title: Text(S.of(mainContext).home),
             actions: [langButton(mainContext), logoutButton(mainContext)],
           ),
           body: PageView(

@@ -26,7 +26,8 @@ Widget logoutButton(BuildContext mainContext) {
                       onPressed: () async {
                         await loginBloc.logout();
                         Navigator.of(context).pop();
-                        Navigator.of(mainContext).pop();
+                        Navigator.of(mainContext)
+                            .pushNamedAndRemoveUntil("about", (route) => false);
                       },
                       child: Text(S.of(mainContext).ok)),
                 ],

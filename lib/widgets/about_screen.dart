@@ -68,11 +68,7 @@ class AboutScreen extends StatelessWidget {
                           padding: EdgeInsets.all(8.0),
                           splashColor: Colors.redAccent,
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (navigatorContext) =>
-                                        LoginScreen()));
+                            Navigator.pushNamed(mainContext, 'login');
                           },
                           child: Text(
                             S.of(mainContext).login,

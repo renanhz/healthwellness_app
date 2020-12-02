@@ -18,5 +18,6 @@
     "logoutAlertTitle": "Logout?",
     "logoutAlertText": "Go back to about screen",
     "ok": "OK",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "home": "Home"
 }
