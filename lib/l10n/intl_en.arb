@@ -19,5 +19,6 @@
     "logoutAlertText": "Go back to about screen",
     "ok": "OK",
     "cancel": "Cancel",
-    "home": "Home"
+    "home": "Home",
+    "logoutError": "An error occurred while trying to log out"
 }

@@ -234,6 +234,16 @@ class S {
       args: [],
     );
   }
+
+  /// `An error occurred while trying to log out`
+  String get logoutError {
+    return Intl.message(
+      'An error occurred while trying to log out',
+      name: 'logoutError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -19,5 +19,6 @@
     "logoutAlertText": "Voltar para a tela sobre",
     "ok": "OK",
     "cancel": "Cancelar",
-    "home": "Home"
+    "home": "Home",
+    "logoutError": "Ocorreu um erro ao tentar o logout"
 }

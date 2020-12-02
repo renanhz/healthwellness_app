@@ -37,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginError" : MessageLookupByLibrary.simpleMessage("Invalid Email/Password"),
     "logoutAlertText" : MessageLookupByLibrary.simpleMessage("Go back to about screen"),
     "logoutAlertTitle" : MessageLookupByLibrary.simpleMessage("Logout?"),
+    "logoutError" : MessageLookupByLibrary.simpleMessage("An error occurred while trying to log out"),
     "ok" : MessageLookupByLibrary.simpleMessage("OK"),
     "password" : MessageLookupByLibrary.simpleMessage("Password"),
     "portuguese" : MessageLookupByLibrary.simpleMessage("Portuguese"),

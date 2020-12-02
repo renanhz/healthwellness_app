@@ -56,6 +56,7 @@ class LoginBloc extends BlocBase {
     firebaseService.logout().then((val) {
       _logoutController.sink.add(LogoutState.SUCCESS);
       _loginController.sink.add(null);
+      _logoutController.sink.add(null);
     }).catchError((e) {
       print(e);
       _logoutController.sink.add(LogoutState.FAIL);
@@ -68,6 +69,7 @@ class LoginBloc extends BlocBase {
     _passController.close();
     _buttonDisableController.close();
     _loginController.close();
+    _logoutController.close();
 
     super.dispose();
   }
