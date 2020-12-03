@@ -18,6 +18,33 @@ class AppointmentService extends BaseService {
     if (response.statusCode == 200) {
       dynamic body = json.decode(response.body);
       print(response.body);
+
+      var appointmentList = new List<AppointmentModel>();
+
+      for (dynamic item in body) {
+        AppointmentModel appointment = AppointmentModel.fromJson(item);
+        appointmentList.add(appointment);
+      }
+
+      return appointmentList;
+    } else {
+      throw Exception();
+    }
+  }
+
+  Future<AppointmentModel> downloadAppointment(int appointmentId) async {
+    Map<String, String> headers = this.buildHeaders();
+
+    final response = await client.get(
+        API_ENDPOINT + API_APPOINTMENT + appointmentId.toString(),
+        headers: headers);
+
+    if (response.statusCode == 200) {
+      dynamic body = json.decode(response.body);
+      print(response.body);
+
+      AppointmentModel appointment = AppointmentModel.fromJson(body);
+      return appointment;
     } else {
       throw Exception();
     }
