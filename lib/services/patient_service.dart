@@ -14,8 +14,9 @@ class PatientService {
     String refreshToken = storage.getItem("refresh-token");
 
     Map<String, String> headers = {
+      "Content-Type": "application/json",
       "access-token": accessToken,
-      "refresh-token": refreshToken
+      "refresh-token": refreshToken,
     };
 
     final response =

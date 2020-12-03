@@ -11,6 +11,7 @@ import 'package:healthwellness/services/patient_service.dart';
 import 'package:healthwellness/widgets/about_screen.dart';
 import 'package:healthwellness/widgets/home_screen.dart';
 import 'package:healthwellness/widgets/login_screen.dart';
+import 'package:localstorage/localstorage.dart';
 
 import 'generated/l10n.dart';
 
@@ -24,9 +25,23 @@ Future<void> setup() async {
       instanceName: 'patientService');
 }
 
+String getRoute() {
+  LocalStorage storage = new LocalStorage('hw');
+
+  String route = "about";
+  String uid = storage.getItem('access-token');
+
+  if (uid != null) {
+    route = "home";
+  }
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setup();
+
+  String firstRoute = getRoute();
+
   runApp(BlocProvider(
       blocs: [
         Bloc((i) => LangBloc()),
