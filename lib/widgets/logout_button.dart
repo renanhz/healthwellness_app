@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:healthwellness/bloc/login_bloc.dart';
 import 'package:healthwellness/generated/l10n.dart';
-import 'package:healthwellness/utils/login_state_enum.dart';
+import 'package:healthwellness/utils/state_enum.dart';
 
 Widget logoutButton(BuildContext mainContext) {
   final LoginBloc loginBloc = BlocProvider.getBloc<LoginBloc>();

@@ -2,7 +2,7 @@ import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:healthwellness/services/firebase_service.dart';
-import 'package:healthwellness/utils/login_state_enum.dart';
+import 'package:healthwellness/utils/state_enum.dart';
 import 'package:rxdart/rxdart.dart';
 
 class LoginBloc extends BlocBase {

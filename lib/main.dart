@@ -3,9 +3,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
+import 'package:healthwellness/bloc/appointment_bloc.dart';
 import 'package:healthwellness/bloc/home_navigation_bloc.dart';
 import 'package:healthwellness/bloc/lang_bloc.dart';
 import 'package:healthwellness/bloc/login_bloc.dart';
+import 'package:healthwellness/services/appointment_service.dart';
 import 'package:healthwellness/services/firebase_service.dart';
 import 'package:healthwellness/services/patient_service.dart';
 import 'package:healthwellness/widgets/about_screen.dart';
@@ -23,6 +25,9 @@ Future<void> setup() async {
 
   GetIt.I.registerSingleton<PatientService>(PatientService(),
       instanceName: 'patientService');
+
+  GetIt.I.registerSingleton<AppointmentService>(AppointmentService(),
+      instanceName: 'appointmentService');
 }
 
 String getRoute() {
@@ -34,6 +39,8 @@ String getRoute() {
   if (uid != null) {
     route = "home";
   }
+
+  return route;
 }
 
 void main() async {
@@ -46,7 +53,8 @@ void main() async {
       blocs: [
         Bloc((i) => LangBloc()),
         Bloc((i) => LoginBloc()),
-        Bloc((i) => HomeNavigationBloc())
+        Bloc((i) => HomeNavigationBloc()),
+        Bloc((i) => AppointmentBloc())
       ],
       child: MaterialApp(
         localizationsDelegates: [
