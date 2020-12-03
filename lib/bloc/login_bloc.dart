@@ -43,7 +43,7 @@ class LoginBloc extends BlocBase {
     String email = _emailController.value;
     String password = _passController.value;
 
-    firebaseService.login(email, password).then((User user) {
+    firebaseService.login(email, password).then((val) {
       _loginController.sink.add(LoginState.SUCCESS);
     }).catchError((e) {
       _loginController.sink.add(LoginState.FAIL);

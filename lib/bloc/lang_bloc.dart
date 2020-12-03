@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:get_it/get_it.dart';
 import 'package:healthwellness/generated/l10n.dart';
 import 'package:localstorage/localstorage.dart';
 import 'package:rxdart/subjects.dart';
@@ -12,7 +13,7 @@ class LangBloc extends BlocBase {
   Stream<String> get outLocale => _localeController.stream;
   Sink<String> get inLocale => _localeController.sink;
 
-  LocalStorage storage = new LocalStorage('hw');
+  LocalStorage storage = GetIt.I.get<LocalStorage>(instanceName: 'storage');
 
   changeLocale(String locale) {
     inLocale.add(locale);

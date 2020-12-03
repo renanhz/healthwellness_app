@@ -6,6 +6,7 @@ import 'package:healthwellness/bloc/login_bloc.dart';
 import 'package:healthwellness/generated/l10n.dart';
 import 'package:healthwellness/widgets/logout_button.dart';
 
+import 'appointment_list_screen.dart';
 import 'lang_button.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -30,7 +31,9 @@ class HomeScreen extends StatelessWidget {
           body: PageView(
             physics: NeverScrollableScrollPhysics(),
             controller: _pageController,
-            children: <Widget>[],
+            children: <Widget>[
+              AppointmentListScreen(),
+            ],
           ),
           bottomNavigationBar: StreamBuilder(
               stream: navigationBloc.outPage,
@@ -62,7 +65,7 @@ class HomeScreen extends StatelessWidget {
                           label: S.of(mainContext).appointments),
                       BottomNavigationBarItem(
                           icon: Icon(Icons.description_outlined),
-                          label: S.of(mainContext).appointments),
+                          label: S.of(mainContext).exams),
                     ],
                   ),
                 );

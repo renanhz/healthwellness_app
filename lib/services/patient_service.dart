@@ -1,3 +1,4 @@
+import 'package:get_it/get_it.dart';
 import 'package:healthwellness/models/patient_model.dart';
 import 'package:healthwellness/utils/urls.dart';
 import 'package:http/http.dart' show Client;
@@ -7,7 +8,7 @@ import 'package:localstorage/localstorage.dart';
 
 class PatientService {
   Client client = Client();
-  LocalStorage storage = new LocalStorage('hw');
+  LocalStorage storage = GetIt.I.get<LocalStorage>(instanceName: 'storage');
 
   Future<PatientModel> getPatient() async {
     String accessToken = storage.getItem("access-token");

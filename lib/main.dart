@@ -18,6 +18,9 @@ import 'package:localstorage/localstorage.dart';
 import 'generated/l10n.dart';
 
 Future<void> setup() async {
+  await GetIt.I.registerSingleton<LocalStorage>(LocalStorage('hw'),
+      instanceName: 'storage');
+
   await Firebase.initializeApp();
 
   GetIt.I.registerSingleton<FirebaseService>(FirebaseService(),
@@ -31,7 +34,7 @@ Future<void> setup() async {
 }
 
 String getRoute() {
-  LocalStorage storage = new LocalStorage('hw');
+  LocalStorage storage = GetIt.I.get<LocalStorage>(instanceName: 'storage');
 
   String route = "about";
   String uid = storage.getItem('access-token');
@@ -46,8 +49,6 @@ String getRoute() {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setup();
-
-  String firstRoute = getRoute();
 
   runApp(BlocProvider(
       blocs: [

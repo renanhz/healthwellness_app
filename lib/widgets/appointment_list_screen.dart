@@ -5,15 +5,26 @@ import 'package:healthwellness/bloc/lang_bloc.dart';
 import 'package:healthwellness/utils/state_enum.dart';
 import 'package:healthwellness/widgets/appointment_card.dart';
 
-class AppointmentListScreen extends StatelessWidget {
+class AppointmentListScreen extends StatefulWidget {
   @override
-  Widget build(BuildContext mainContext) {
-    final LangBloc langBloc = BlocProvider.getBloc<LangBloc>();
-    final AppointmentBloc appointmentBloc =
-        BlocProvider.getBloc<AppointmentBloc>();
+  _AppointmentListScreenState createState() => _AppointmentListScreenState();
+}
+
+class _AppointmentListScreenState extends State<AppointmentListScreen> {
+  LangBloc langBloc;
+  AppointmentBloc appointmentBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    this.langBloc = BlocProvider.getBloc<LangBloc>();
+    this.appointmentBloc = BlocProvider.getBloc<AppointmentBloc>();
 
     appointmentBloc.downloadAppointmentList();
+  }
 
+  @override
+  Widget build(BuildContext mainContext) {
     return StreamBuilder(
         initialData: 'en',
         stream: langBloc.outLocale,
