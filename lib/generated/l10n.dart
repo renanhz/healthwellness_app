@@ -294,6 +294,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Exam`
+  String get newExam {
+    return Intl.message(
+      'New Exam',
+      name: 'newExam',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pick a Date`
+  String get pickDate {
+    return Intl.message(
+      'Pick a Date',
+      name: 'pickDate',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

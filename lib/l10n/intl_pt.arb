@@ -25,5 +25,8 @@
     "appointmentDetailError": "Ocorreu um erro ao tentar baixar os detalhes da Consulta",
     "docInfo": "Informações Dr(a).",
     "na": "N/A",
-    "diagnosis": "Diagnosis"
+    "diagnosis": "Diagnosis",
+    "name": "Nome",
+    "newExam": "Novo Exame",
+    "pickDate": "Selecione uma data"
 }

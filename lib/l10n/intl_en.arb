@@ -25,5 +25,8 @@
     "appointmentDetailError": "An error occurred while trying to download Appointment Details",
     "docInfo": "Dr(a). info",
     "na": "N/A",
-    "diagnosis": "Diagnosis"
+    "diagnosis": "Diagnosis",
+    "name": "Name",
+    "newExam": "New Exam",
+    "pickDate": "Pick a Date"
 }

@@ -42,8 +42,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "logoutAlertTitle" : MessageLookupByLibrary.simpleMessage("Logout?"),
     "logoutError" : MessageLookupByLibrary.simpleMessage("An error occurred while trying to log out"),
     "na" : MessageLookupByLibrary.simpleMessage("N/A"),
+    "name" : MessageLookupByLibrary.simpleMessage("Name"),
+    "newExam" : MessageLookupByLibrary.simpleMessage("New Exam"),
     "ok" : MessageLookupByLibrary.simpleMessage("OK"),
     "password" : MessageLookupByLibrary.simpleMessage("Password"),
+    "pickDate" : MessageLookupByLibrary.simpleMessage("Pick a Date"),
     "portuguese" : MessageLookupByLibrary.simpleMessage("Portuguese"),
     "signIn" : MessageLookupByLibrary.simpleMessage("Sign in"),
     "symptoms" : MessageLookupByLibrary.simpleMessage("Symptoms")
