@@ -29,5 +29,8 @@
     "name": "Name",
     "newExam": "New Exam",
     "pickDate": "Pick a Date",
-    "pickFile": "Select File"
+    "pickFile": "Select File",
+    "fileName": "File Name",
+    "createExam": "Create Exam",
+    "newExamError": "An error occurred while trying to save exam"
 }

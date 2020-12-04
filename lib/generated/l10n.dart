@@ -334,6 +334,36 @@ class S {
       args: [],
     );
   }
+
+  /// `File Name`
+  String get fileName {
+    return Intl.message(
+      'File Name',
+      name: 'fileName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Exam`
+  String get createExam {
+    return Intl.message(
+      'Create Exam',
+      name: 'createExam',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while trying to save exam`
+  String get newExamError {
+    return Intl.message(
+      'An error occurred while trying to save exam',
+      name: 'newExamError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

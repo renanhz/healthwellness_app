@@ -1,8 +1,11 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
+import 'package:healthwellness/models/patient_model.dart';
 import 'package:healthwellness/services/firebase_service.dart';
+import 'package:healthwellness/services/patient_service.dart';
 import 'package:healthwellness/utils/state_enum.dart';
+import 'package:localstorage/localstorage.dart';
 import 'package:rxdart/rxdart.dart';
 
 class LoginBloc extends BlocBase {
@@ -26,6 +29,11 @@ class LoginBloc extends BlocBase {
   FirebaseService firebaseService =
       GetIt.I.get<FirebaseService>(instanceName: 'firebaseService');
 
+  PatientService patientService =
+      GetIt.I.get<PatientService>(instanceName: 'patientService');
+
+  LocalStorage storage = GetIt.I.get<LocalStorage>(instanceName: 'storage');
+
   void checkButtonDisable() {
     String email = _emailController.value;
     String password = _passController.value;
@@ -44,7 +52,13 @@ class LoginBloc extends BlocBase {
     String password = _passController.value;
 
     firebaseService.login(email, password).then((val) {
-      _loginController.sink.add(LoginState.SUCCESS);
+      patientService.getPatient().then((PatientModel patient) {
+        storage.setItem("patientId", patient.id);
+
+        _loginController.sink.add(LoginState.SUCCESS);
+      }).catchError((e) {
+        _loginController.sink.add(LoginState.FAIL);
+      });
     }).catchError((e) {
       _loginController.sink.add(LoginState.FAIL);
     });

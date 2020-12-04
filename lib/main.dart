@@ -10,6 +10,7 @@ import 'package:healthwellness/bloc/home_navigation_bloc.dart';
 import 'package:healthwellness/bloc/lang_bloc.dart';
 import 'package:healthwellness/bloc/login_bloc.dart';
 import 'package:healthwellness/services/appointment_service.dart';
+import 'package:healthwellness/services/exam_service.dart';
 import 'package:healthwellness/services/firebase_service.dart';
 import 'package:healthwellness/services/patient_service.dart';
 import 'package:healthwellness/widgets/about_screen.dart';
@@ -33,6 +34,9 @@ Future<void> setup() async {
 
   GetIt.I.registerSingleton<AppointmentService>(AppointmentService(),
       instanceName: 'appointmentService');
+
+  GetIt.I.registerSingleton<ExamService>(ExamService(),
+      instanceName: 'examService');
 }
 
 Future<String> checkCurrentUserAndGetRoute() async {

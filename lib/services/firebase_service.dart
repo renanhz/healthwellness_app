@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:healthwellness/services/base_service.dart';
 import 'package:localstorage/localstorage.dart';
@@ -9,6 +12,8 @@ import 'dart:convert';
 class FirebaseService extends BaseService {
   FirebaseAuth _auth = FirebaseAuth.instance;
   LocalStorage storage = GetIt.I.get<LocalStorage>(instanceName: 'storage');
+
+  FirebaseStorage fireStorage = FirebaseStorage.instance;
 
   Future<void> login(String email, String password) async {
     try {
@@ -46,5 +51,19 @@ class FirebaseService extends BaseService {
 
   Future<User> checkCurrentUser() async {
     return _auth.currentUser;
+  }
+
+  Future<String> uploadFile(String filePath, String fileName) async {
+    String uid = _auth.currentUser.uid;
+    File file = File(filePath);
+
+    try {
+      String firebaseFilePath = "exames/${uid}/${fileName}";
+      await fireStorage.ref(firebaseFilePath).putFile(file);
+      return firebaseFilePath;
+    } catch (e) {
+      print("UPLOAD ERROR");
+      throw e;
+    }
   }
 }
