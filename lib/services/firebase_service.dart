@@ -24,9 +24,9 @@ class FirebaseService extends BaseService {
           headers: headers, body: json.encode(body));
 
       if (response.statusCode == 200) {
-        dynamic responseData = json.decode(response.body);
+        var responseData = json.decode(response.body);
 
-        storage.setItem('access-token', user.uid);
+        storage.setItem('access-token', responseData['data']['accessToken']);
         storage.setItem('refresh-token', responseData['data']['refreshToken']);
       } else {
         throw Exception();

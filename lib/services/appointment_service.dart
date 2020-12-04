@@ -15,6 +15,10 @@ class AppointmentService extends BaseService {
     final response =
         await client.get(API_ENDPOINT + API_APPOINTMENT, headers: headers);
 
+    print(API_ENDPOINT + API_APPOINTMENT);
+    print("headers: ${headers['refresh-token']}");
+    print("response: ${response.body}");
+
     if (response.statusCode == 200) {
       dynamic body = json.decode(response.body);
       print("SUCESSO");

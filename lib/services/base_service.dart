@@ -14,6 +14,9 @@ class BaseService {
       "Content-Type": "application/json",
       "access-token": accessToken,
       "refresh-token": refreshToken,
+      'Access-Control-Allow-Methods': '*',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': '*'
     };
   }
 }
