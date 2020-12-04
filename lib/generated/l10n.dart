@@ -274,6 +274,26 @@ class S {
       args: [],
     );
   }
+
+  /// `N/A`
+  String get na {
+    return Intl.message(
+      'N/A',
+      name: 'na',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Diagnosis`
+  String get diagnosis {
+    return Intl.message(
+      'Diagnosis',
+      name: 'diagnosis',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

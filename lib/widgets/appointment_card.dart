@@ -93,30 +93,81 @@ Widget getAppointmentCard(BuildContext mainContext,
                                         ),
                                       ),
                                       Container(
-                                          margin: EdgeInsets.only(top: 10.0),
-                                          width: double.infinity,
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "Dr(a). ${snapshot.data.doctor['name']}",
-                                                textAlign: TextAlign.left,
-                                                style: TextStyle(
-                                                  fontSize: 14.0,
-                                                ),
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Icon(Icons.contact_phone),
-                                                  Text(
-                                                      "${snapshot.data.doctor['contact']}")
-                                                ],
-                                              )
-                                            ],
-                                          )),
+                                        margin: EdgeInsets.only(top: 5.0),
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          "Dr(a). ${snapshot.data.doctor['name']}",
+                                          textAlign: TextAlign.left,
+                                          style: TextStyle(
+                                            fontSize: 14.0,
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 5.0),
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              margin:
+                                                  EdgeInsets.only(right: 5.0),
+                                              child: Text(
+                                                  snapshot
+                                                      .data.doctor['contact'],
+                                                  style: TextStyle(
+                                                    fontSize: 14.0,
+                                                  )),
+                                            ),
+                                            Icon(
+                                              Icons.phone,
+                                              size: 15.0,
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        margin:
+                                            EdgeInsets.symmetric(vertical: 5.0),
+                                        child: Divider(
+                                          color: Colors.grey[400],
+                                          height: 1.0,
+                                        ),
+                                      ),
+                                      Container(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          S.of(mainContext).symptoms,
+                                          style: TextStyle(
+                                              fontSize: 14.0,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 5.0),
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(snapshot.data.symptom,
+                                            style: TextStyle(
+                                              fontSize: 14.0,
+                                            )),
+                                      ),
+                                      Container(
+                                        alignment: Alignment.centerLeft,
+                                        margin: EdgeInsets.only(top: 5.0),
+                                        child: Text(
+                                          S.of(mainContext).diagnosis,
+                                          style: TextStyle(
+                                              fontSize: 14.0,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                      ),
+                                      Container(
+                                          alignment: Alignment.centerLeft,
+                                          margin: EdgeInsets.only(top: 5.0),
+                                          child: Text(
+                                            snapshot.data.diagnosis != null
+                                                ? snapshot.data.diagnosis
+                                                : S.of(mainContext).na,
+                                            style: TextStyle(fontSize: 14.0),
+                                          ))
                                     ],
                                   ),
                                 )

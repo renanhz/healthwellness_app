@@ -23,5 +23,7 @@
     "logoutError": "Ocorreu um erro ao tentar o logout",
     "symptoms": "Sintomas",
     "appointmentDetailError": "Ocorreu um erro ao tentar baixar os detalhes da Consulta",
-    "docInfo": "Informações Dr(a)."
+    "docInfo": "Informações Dr(a).",
+    "na": "N/A",
+    "diagnosis": "Diagnosis"
 }

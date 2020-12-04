@@ -23,5 +23,7 @@
     "logoutError": "An error occurred while trying to log out",
     "symptoms": "Symptoms",
     "appointmentDetailError": "An error occurred while trying to download Appointment Details",
-    "docInfo": "Dr(a). info"
+    "docInfo": "Dr(a). info",
+    "na": "N/A",
+    "diagnosis": "Diagnosis"
 }
