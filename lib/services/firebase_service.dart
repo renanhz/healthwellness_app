@@ -12,10 +12,7 @@ class FirebaseService extends BaseService {
 
   Future<void> login(String email, String password) async {
     try {
-      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
-
-      User user = userCredential.user;
+      await _auth.signInWithEmailAndPassword(email: email, password: password);
 
       Map<String, String> body = {"email": email, "senha": password};
       Map<String, String> headers = {"Content-Type": "application/json"};
@@ -39,10 +36,15 @@ class FirebaseService extends BaseService {
 
   Future<void> logout() async {
     try {
-      await storage.clear();
+      await storage.deleteItem('access-token');
+      await storage.deleteItem('refresh-token');
       await _auth.signOut();
     } catch (e) {
       throw e;
     }
+  }
+
+  Future<User> checkCurrentUser() async {
+    return _auth.currentUser;
   }
 }

@@ -16,6 +16,8 @@ class AppointmentService extends BaseService {
         await client.get(API_ENDPOINT + API_APPOINTMENT, headers: headers);
 
     print(API_ENDPOINT + API_APPOINTMENT);
+    print("Headers: ${headers}");
+    print("Response: ${response.body}");
 
     if (response.statusCode == 200) {
       dynamic body = json.decode(response.body);
@@ -29,6 +31,7 @@ class AppointmentService extends BaseService {
 
       return appointmentList;
     } else {
+      print("ERRO");
       throw Exception();
     }
   }
@@ -47,7 +50,7 @@ class AppointmentService extends BaseService {
       AppointmentModel appointment = AppointmentModel.fromJson(body['data']);
       return appointment;
     } else {
-      print("DEU MERDA");
+      print("ERRO");
       throw Exception();
     }
   }

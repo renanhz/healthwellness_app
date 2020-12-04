@@ -55,6 +55,11 @@ class _AppointmentListScreenState extends State<AppointmentListScreen> {
                   },
                 );
               }
+
+              return Container(
+                width: 0.0,
+                height: 0.0,
+              );
             },
           );
         });

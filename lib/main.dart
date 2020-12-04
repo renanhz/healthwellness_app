@@ -1,4 +1,5 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -33,13 +34,17 @@ Future<void> setup() async {
       instanceName: 'appointmentService');
 }
 
-String getRoute() {
+Future<String> checkCurrentUserAndGetRoute() async {
   LocalStorage storage = GetIt.I.get<LocalStorage>(instanceName: 'storage');
+  await storage.ready;
+  FirebaseService firebaseService =
+      GetIt.I.get<FirebaseService>(instanceName: 'firebaseService');
+
+  User firebaseUser = await firebaseService.checkCurrentUser();
 
   String route = "about";
-  String uid = storage.getItem('access-token');
 
-  if (uid != null) {
+  if (firebaseUser != null) {
     route = "home";
   }
 
@@ -49,6 +54,7 @@ String getRoute() {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setup();
+  String initialRoute = await checkCurrentUserAndGetRoute();
 
   runApp(BlocProvider(
       blocs: [
@@ -67,7 +73,7 @@ void main() async {
         supportedLocales: S.delegate.supportedLocales,
         debugShowCheckedModeBanner: false,
         title: "Health & Wellness",
-        initialRoute: "about",
+        initialRoute: initialRoute,
         routes: {
           "about": (context) => AboutScreen(),
           "login": (context) => LoginScreen(),
