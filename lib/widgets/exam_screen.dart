@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:healthwellness/bloc/exam_bloc.dart';
 import 'package:healthwellness/bloc/lang_bloc.dart';
 import 'package:healthwellness/generated/l10n.dart';
+import 'package:healthwellness/models/exam_model.dart';
 import 'package:healthwellness/utils/state_enum.dart';
 import 'package:healthwellness/widgets/exam_card.dart';
 import 'package:intl/intl.dart';
@@ -48,6 +49,7 @@ class ExamScreenState extends State<ExamScreen> {
                     heightFactor: 2,
                     child: Text(
                       S.of(mainContext).downloadExamListError,
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.red,
                         fontSize: 20.0,
@@ -60,7 +62,7 @@ class ExamScreenState extends State<ExamScreen> {
                     stream: examBloc.outExamList,
                     builder: (context, snapshot) {
                       return ListView.builder(
-                        itemCount: snapshot.data.index,
+                        itemCount: snapshot.data.length,
                         itemBuilder: (context, index) {
                           return getExamCard(mainContext, snapshot.data[index]);
                         },
@@ -68,6 +70,11 @@ class ExamScreenState extends State<ExamScreen> {
                     },
                   );
                 }
+
+                return Container(
+                  width: 0.0,
+                  height: 0.0,
+                );
               },
             ),
             Align(

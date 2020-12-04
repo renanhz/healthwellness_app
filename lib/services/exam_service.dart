@@ -32,10 +32,11 @@ class ExamService extends BaseService {
 
   Future<List<ExamModel>> getExamList() async {
     Map<String, String> headers = await this.buildHeaders();
-    int patientId = storage.getItem("patientId");
 
     final response =
-        await client.get("$API_ENDPOINT$API_EXAM/$patientId", headers: headers);
+        await client.get("$API_ENDPOINT$API_EXAM", headers: headers);
+
+    print("RESPONSE ${response.body}");
 
     if (response.statusCode == 200) {
       dynamic body = json.decode(response.body);
