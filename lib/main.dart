@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
 import 'package:healthwellness/bloc/appointment_bloc.dart';
+import 'package:healthwellness/bloc/exam_bloc.dart';
 import 'package:healthwellness/bloc/home_navigation_bloc.dart';
 import 'package:healthwellness/bloc/lang_bloc.dart';
 import 'package:healthwellness/bloc/login_bloc.dart';
@@ -61,7 +62,8 @@ void main() async {
         Bloc((i) => LangBloc()),
         Bloc((i) => LoginBloc()),
         Bloc((i) => HomeNavigationBloc()),
-        Bloc((i) => AppointmentBloc())
+        Bloc((i) => AppointmentBloc()),
+        Bloc((i) => ExamBloc())
       ],
       child: MaterialApp(
         localizationsDelegates: [
