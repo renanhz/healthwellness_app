@@ -155,6 +155,45 @@ class ExamScreenState extends State<ExamScreen> {
                           },
                         ),
                       ),
+                      Container(
+                        margin: EdgeInsets.only(top: 10.0),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: RaisedButton(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(right: 5.0),
+                                  child: Icon(
+                                    Icons.upload_file,
+                                    color: Colors.white,
+                                    size: 20.0,
+                                  ),
+                                ),
+                                Text(
+                                  S.of(mainContext).pickFile,
+                                  style: TextStyle(
+                                    fontSize: 14.0,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            color: Colors.red[600],
+                            disabledColor: Colors.grey,
+                            disabledTextColor: Colors.grey[350],
+                            padding: EdgeInsets.all(5.0),
+                            onPressed: () async {
+                              await examBloc.selectFile();
+                            },
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 5.0),
+                        child: Text(""),
+                      ),
                     ],
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:rxdart/rxdart.dart';
 
 class ExamBloc extends BlocBase {
@@ -13,6 +14,17 @@ class ExamBloc extends BlocBase {
       BehaviorSubject<DateTime>();
   Sink<DateTime> get inCreationDate => _creationDateController.sink;
   Stream<DateTime> get outCreationDate => _creationDateController.stream;
+
+  Future<void> selectFile() async {
+    FilePickerResult result = await FilePicker.platform.pickFiles();
+
+    if (result != null) {
+      PlatformFile file = result.files.first;
+
+      print(file.name);
+      print(file.path);
+    }
+  }
 
   void checkButtonState() {}
 

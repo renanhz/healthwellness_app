@@ -28,5 +28,6 @@
     "diagnosis": "Diagnosis",
     "name": "Nome",
     "newExam": "Novo Exame",
-    "pickDate": "Selecione uma data"
+    "pickDate": "Selecione uma data",
+    "pickFile": "Selecionar Arquivo"
 }
