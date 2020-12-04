@@ -21,5 +21,7 @@
     "cancel": "Cancel",
     "home": "Home",
     "logoutError": "An error occurred while trying to log out",
-    "symptoms": "Symptoms"
+    "symptoms": "Symptoms",
+    "appointmentDetailError": "An error occurred while trying to download Appointment Details",
+    "docInfo": "Dr(a). info"
 }

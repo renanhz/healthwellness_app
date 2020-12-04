@@ -254,6 +254,26 @@ class S {
       args: [],
     );
   }
+
+  /// `An error occurred while trying to download Appointment Details`
+  String get appointmentDetailError {
+    return Intl.message(
+      'An error occurred while trying to download Appointment Details',
+      name: 'appointmentDetailError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dr(a). info`
+  String get docInfo {
+    return Intl.message(
+      'Dr(a). info',
+      name: 'docInfo',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

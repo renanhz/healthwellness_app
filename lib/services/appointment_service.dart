@@ -37,12 +37,12 @@ class AppointmentService extends BaseService {
     Map<String, String> headers = await this.buildHeaders();
 
     final response = await client.get(
-        API_ENDPOINT + API_APPOINTMENT + appointmentId.toString(),
+        "${API_ENDPOINT + API_APPOINTMENT}/${appointmentId.toString()}",
         headers: headers);
 
     if (response.statusCode == 200) {
       dynamic body = json.decode(response.body);
-      print("SUCESSO");
+      print("SUCESSO: ${body['data']}");
 
       AppointmentModel appointment = AppointmentModel.fromJson(body['data']);
       return appointment;

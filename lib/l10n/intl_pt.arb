@@ -21,5 +21,7 @@
     "cancel": "Cancelar",
     "home": "Home",
     "logoutError": "Ocorreu um erro ao tentar o logout",
-    "symptoms": "Sintomas"
+    "symptoms": "Sintomas",
+    "appointmentDetailError": "Ocorreu um erro ao tentar baixar os detalhes da Consulta",
+    "docInfo": "Informações Dr(a)."
 }
