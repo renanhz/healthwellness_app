@@ -32,5 +32,6 @@
     "pickFile": "Select File",
     "fileName": "File Name",
     "createExam": "Create Exam",
-    "newExamError": "An error occurred while trying to save exam"
+    "newExamError": "An error occurred while trying to save exam",
+    "downloadExamListError": "An error occurred while trying to download Exams"
 }

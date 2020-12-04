@@ -4,6 +4,7 @@ import 'package:healthwellness/bloc/exam_bloc.dart';
 import 'package:healthwellness/bloc/lang_bloc.dart';
 import 'package:healthwellness/generated/l10n.dart';
 import 'package:healthwellness/utils/state_enum.dart';
+import 'package:healthwellness/widgets/exam_card.dart';
 import 'package:intl/intl.dart';
 
 class ExamScreen extends StatefulWidget {
@@ -20,6 +21,8 @@ class ExamScreenState extends State<ExamScreen> {
     super.initState();
     this.langBloc = BlocProvider.getBloc<LangBloc>();
     this.examBloc = BlocProvider.getBloc<ExamBloc>();
+
+    this.examBloc.downloadExamList();
   }
 
   @override
@@ -30,7 +33,43 @@ class ExamScreenState extends State<ExamScreen> {
       builder: (langContext, snapshot) {
         return Stack(
           children: [
-            Container(),
+            StreamBuilder(
+              stream: examBloc.outExamListState,
+              builder: (context, snapshot) {
+                if (snapshot.data == ExamListState.LOADING) {
+                  return Center(
+                    heightFactor: 2,
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation(Colors.red[600]),
+                    ),
+                  );
+                } else if (snapshot.data == ExamListState.FAIL) {
+                  return Center(
+                    heightFactor: 2,
+                    child: Text(
+                      S.of(mainContext).downloadExamListError,
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 20.0,
+                      ),
+                    ),
+                  );
+                } else if (snapshot.data == ExamListState.SUCCESS) {
+                  return StreamBuilder(
+                    initialData: [],
+                    stream: examBloc.outExamList,
+                    builder: (context, snapshot) {
+                      return ListView.builder(
+                        itemCount: snapshot.data.index,
+                        itemBuilder: (context, index) {
+                          return getExamCard(mainContext, snapshot.data[index]);
+                        },
+                      );
+                    },
+                  );
+                }
+              },
+            ),
             Align(
               alignment: Alignment.bottomRight,
               child: Container(

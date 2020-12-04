@@ -364,6 +364,16 @@ class S {
       args: [],
     );
   }
+
+  /// `An error occurred while trying to download Exams`
+  String get downloadExamListError {
+    return Intl.message(
+      'An error occurred while trying to download Exams',
+      name: 'downloadExamListError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

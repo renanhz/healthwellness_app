@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "developedBy" : MessageLookupByLibrary.simpleMessage("Developed By André, Eduardo, Lucas, Renan"),
     "diagnosis" : MessageLookupByLibrary.simpleMessage("Diagnosis"),
     "docInfo" : MessageLookupByLibrary.simpleMessage("Dr(a). info"),
+    "downloadExamListError" : MessageLookupByLibrary.simpleMessage("An error occurred while trying to download Exams"),
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
     "english" : MessageLookupByLibrary.simpleMessage("English"),
     "enter" : MessageLookupByLibrary.simpleMessage("Enter"),

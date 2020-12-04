@@ -34,6 +34,16 @@ class ExamBloc extends BlocBase {
   Sink<NewExamState> get inNewExamState => _newExamStateController.sink;
   Stream<NewExamState> get outNewExamState => _newExamStateController.stream;
 
+  BehaviorSubject<ExamListState> _examListStateController =
+      BehaviorSubject<ExamListState>();
+  Sink<ExamListState> get inExamListState => _examListStateController.sink;
+  Stream<ExamListState> get outExamListState => _examListStateController.stream;
+
+  BehaviorSubject<List<ExamModel>> _examListController =
+      BehaviorSubject<List<ExamModel>>();
+  Sink<List<ExamModel>> get inExamList => _examListController.sink;
+  Stream<List<ExamModel>> get outExamList => _examListController.stream;
+
   FirebaseService firebaseService =
       GetIt.I.get<FirebaseService>(instanceName: 'firebaseService');
 
@@ -94,6 +104,17 @@ class ExamBloc extends BlocBase {
     }).catchError((e) {
       print("ERRO FIREBASE");
       inNewExamState.add(NewExamState.FAIL);
+    });
+  }
+
+  Future<void> downloadExamList() async {
+    inExamListState.add(ExamListState.LOADING);
+
+    examService.getExamList().then((List<ExamModel> examList) {
+      inExamList.add(examList);
+      inExamListState.add(ExamListState.SUCCESS);
+    }).catchError((e) {
+      inExamListState.add(ExamListState.FAIL);
     });
   }
 

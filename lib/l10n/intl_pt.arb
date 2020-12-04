@@ -32,5 +32,6 @@
     "pickFile": "Selecionar Arquivo",
     "fileName": "Nome do arquivo",
     "createExam": "Criar Exame",
-    "newExamError": "Ocorreu um erro ao tentar salvar o exame"
+    "newExamError": "Ocorreu um erro ao tentar salvar o exame",
+    "downloadExamListError": "Ocorreu um erro ao tentar baixar os Exames"
 }
