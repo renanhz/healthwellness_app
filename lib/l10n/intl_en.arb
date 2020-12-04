@@ -20,5 +20,6 @@
     "ok": "OK",
     "cancel": "Cancel",
     "home": "Home",
-    "logoutError": "An error occurred while trying to log out"
+    "logoutError": "An error occurred while trying to log out",
+    "symptoms": "Symptoms"
 }

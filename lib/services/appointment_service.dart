@@ -16,16 +16,13 @@ class AppointmentService extends BaseService {
         await client.get(API_ENDPOINT + API_APPOINTMENT, headers: headers);
 
     print(API_ENDPOINT + API_APPOINTMENT);
-    print("headers: ${headers['refresh-token']}");
-    print("response: ${response.body}");
 
     if (response.statusCode == 200) {
       dynamic body = json.decode(response.body);
-      print("SUCESSO");
 
       var appointmentList = new List<AppointmentModel>();
 
-      for (dynamic item in body) {
+      for (dynamic item in body['data']) {
         AppointmentModel appointment = AppointmentModel.fromJson(item);
         appointmentList.add(appointment);
       }
@@ -47,7 +44,7 @@ class AppointmentService extends BaseService {
       dynamic body = json.decode(response.body);
       print("SUCESSO");
 
-      AppointmentModel appointment = AppointmentModel.fromJson(body);
+      AppointmentModel appointment = AppointmentModel.fromJson(body['data']);
       return appointment;
     } else {
       print("DEU MERDA");

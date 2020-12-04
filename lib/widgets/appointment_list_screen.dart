@@ -28,7 +28,7 @@ class _AppointmentListScreenState extends State<AppointmentListScreen> {
     return StreamBuilder(
         initialData: 'en',
         stream: langBloc.outLocale,
-        builder: (context, snapshot) {
+        builder: (langContext, snapshot) {
           return StreamBuilder(
             stream: appointmentBloc.outAppointmentState,
             builder: (context, snapshot) {
@@ -46,9 +46,10 @@ class _AppointmentListScreenState extends State<AppointmentListScreen> {
                   stream: appointmentBloc.outAppointmentList,
                   builder: (context, snapshot) {
                     return ListView.builder(
+                      itemCount: snapshot.data.length,
                       itemBuilder: (context, index) {
                         return getAppointmentCard(
-                            mainContext, snapshot.data[index]);
+                            langContext, snapshot.data[index]);
                       },
                     );
                   },

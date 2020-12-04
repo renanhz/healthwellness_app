@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "ok" : MessageLookupByLibrary.simpleMessage("OK"),
     "password" : MessageLookupByLibrary.simpleMessage("Senha"),
     "portuguese" : MessageLookupByLibrary.simpleMessage("Português"),
-    "signIn" : MessageLookupByLibrary.simpleMessage("Login")
+    "signIn" : MessageLookupByLibrary.simpleMessage("Login"),
+    "symptoms" : MessageLookupByLibrary.simpleMessage("Sintomas")
   };
 }

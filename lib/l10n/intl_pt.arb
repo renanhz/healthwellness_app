@@ -20,5 +20,6 @@
     "ok": "OK",
     "cancel": "Cancelar",
     "home": "Home",
-    "logoutError": "Ocorreu um erro ao tentar o logout"
+    "logoutError": "Ocorreu um erro ao tentar o logout",
+    "symptoms": "Sintomas"
 }
