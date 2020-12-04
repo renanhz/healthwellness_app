@@ -22,6 +22,23 @@ class AppointmentBloc extends BlocBase {
   Stream<AppointmentListState> get outAppointmentState =>
       _appointmentStateController.stream;
 
+  final BehaviorSubject<AppointmentDetailState>
+      _appointmentDetailStateController =
+      BehaviorSubject<AppointmentDetailState>();
+
+  Sink<AppointmentDetailState> get inAppointmentDetailState =>
+      _appointmentDetailStateController.sink;
+
+  Stream<AppointmentDetailState> get outAppointmentDetailState =>
+      _appointmentDetailStateController.stream;
+
+  final BehaviorSubject<AppointmentModel> _appointmentDetailController =
+      BehaviorSubject<AppointmentModel>();
+  Sink<AppointmentModel> get inAppointmentDetail =>
+      _appointmentDetailController.sink;
+  Stream<AppointmentModel> get outAppointmentDetail =>
+      _appointmentDetailController.stream;
+
   AppointmentService appointmentService =
       GetIt.I.get<AppointmentService>(instanceName: 'appointmentService');
 
@@ -38,11 +55,26 @@ class AppointmentBloc extends BlocBase {
     });
   }
 
+  Future<void> downloadAppointmentDetail(int id) async {
+    inAppointmentDetailState.add(AppointmentDetailState.LOADING);
+
+    appointmentService
+        .downloadAppointment(id)
+        .then((AppointmentModel appointment) {
+      inAppointmentDetail.add(appointment);
+      inAppointmentDetailState.add(AppointmentDetailState.SUCCESS);
+    }).catchError((e) {
+      inAppointmentDetailState.add(AppointmentDetailState.FAIL);
+    });
+  }
+
   @override
   void dispose() {
     super.dispose();
 
     _appointmentListController.close();
     _appointmentStateController.close();
+    _appointmentDetailController.close();
+    _appointmentDetailStateController.close();
   }
 }

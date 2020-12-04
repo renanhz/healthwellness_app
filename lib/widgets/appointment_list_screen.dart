@@ -49,7 +49,7 @@ class _AppointmentListScreenState extends State<AppointmentListScreen> {
                       itemCount: snapshot.data.length,
                       itemBuilder: (context, index) {
                         return getAppointmentCard(
-                            langContext, snapshot.data[index]);
+                            langContext, snapshot.data[index], appointmentBloc);
                       },
                     );
                   },

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:healthwellness/bloc/appointment_bloc.dart';
 import 'package:healthwellness/generated/l10n.dart';
 import 'package:healthwellness/models/appointment_model.dart';
 
-Widget getAppointmentCard(
-    BuildContext mainContext, AppointmentModel appointment) {
+Widget getAppointmentCard(BuildContext mainContext,
+    AppointmentModel appointment, AppointmentBloc appointmentBloc) {
   return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        showDialog(context: mainContext, child: StreamBuil);
+      },
       child: Card(
         margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
         elevation: 4.0,
