@@ -68,6 +68,7 @@ class FirebaseService extends BaseService {
   }
 
   Future<String> getExamImg(String path) async {
+    print(path);
     try {
       String imgUrl = await fireStorage.ref(path).getDownloadURL();
 

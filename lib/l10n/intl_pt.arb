@@ -33,5 +33,6 @@
     "fileName": "Nome do arquivo",
     "createExam": "Criar Exame",
     "newExamError": "Ocorreu um erro ao tentar salvar o exame",
-    "downloadExamListError": "Ocorreu um erro ao tentar baixar os Exames"
+    "downloadExamListError": "Ocorreu um erro ao tentar baixar os Exames",
+    "examImgError": "Ocorreu um erro ao tentar baixar a imagem do exame"
 }

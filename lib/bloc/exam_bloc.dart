@@ -44,6 +44,16 @@ class ExamBloc extends BlocBase {
   Sink<List<ExamModel>> get inExamList => _examListController.sink;
   Stream<List<ExamModel>> get outExamList => _examListController.stream;
 
+  BehaviorSubject<ExamImgState> _examImgStateController =
+      BehaviorSubject<ExamImgState>();
+  Sink<ExamImgState> get inExamImgState => _examImgStateController.sink;
+  Stream<ExamImgState> get outExamImgState => _examImgStateController.stream;
+
+  BehaviorSubject<String> _firebaseFilePathController =
+      BehaviorSubject<String>();
+  Sink<String> get inFirebaseFilePath => _firebaseFilePathController.sink;
+  Stream<String> get outFirebaseFilePath => _firebaseFilePathController.stream;
+
   FirebaseService firebaseService =
       GetIt.I.get<FirebaseService>(instanceName: 'firebaseService');
 
@@ -115,6 +125,17 @@ class ExamBloc extends BlocBase {
       inExamListState.add(ExamListState.SUCCESS);
     }).catchError((e) {
       inExamListState.add(ExamListState.FAIL);
+    });
+  }
+
+  Future<String> getExamImageUrl(String filePath) {
+    inExamImgState.add(ExamImgState.LOADING);
+
+    firebaseService.getExamImg(filePath).then((String firebaseImgUrl) {
+      inFirebaseFilePath.add(firebaseImgUrl);
+      inExamImgState.add(ExamImgState.SUCCESS);
+    }).catchError((e) {
+      inExamImgState.add(ExamImgState.FAIL);
     });
   }
 

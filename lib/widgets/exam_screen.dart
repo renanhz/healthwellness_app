@@ -64,7 +64,8 @@ class ExamScreenState extends State<ExamScreen> {
                       return ListView.builder(
                         itemCount: snapshot.data.length,
                         itemBuilder: (context, index) {
-                          return getExamCard(mainContext, snapshot.data[index]);
+                          return getExamCard(
+                              mainContext, snapshot.data[index], examBloc);
                         },
                       );
                     },

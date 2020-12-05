@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
     "english" : MessageLookupByLibrary.simpleMessage("Inglês"),
     "enter" : MessageLookupByLibrary.simpleMessage("Entrar"),
+    "examImgError" : MessageLookupByLibrary.simpleMessage("Ocorreu um erro ao tentar baixar a imagem do exame"),
     "exams" : MessageLookupByLibrary.simpleMessage("Exames"),
     "fileName" : MessageLookupByLibrary.simpleMessage("Nome do arquivo"),
     "home" : MessageLookupByLibrary.simpleMessage("Home"),

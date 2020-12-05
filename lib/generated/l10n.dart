@@ -374,6 +374,16 @@ class S {
       args: [],
     );
   }
+
+  /// `An error occurred while trying to download Exam Image`
+  String get examImgError {
+    return Intl.message(
+      'An error occurred while trying to download Exam Image',
+      name: 'examImgError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
